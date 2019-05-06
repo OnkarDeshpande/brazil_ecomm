@@ -10,15 +10,16 @@ Problem definition:
 
 
 General workflow:
+Exploratory data analysis, pre-processing, feature engineering and model building are kept independent of each other. This is done to help reworking on single aspect again, without breaking much of the pipeline. Processed datasets are stored under data/processed folder. Overall, the workflow looks like: 
 
-[000_EDA](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/000_EDA.ipynb) : contains trivial findings about datasets, column types and understand the target
+* [000_EDA](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/000_EDA.ipynb) : contains trivial findings about datasets, column types and understand the target
 
-[100_datata_preproces](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/100_data_preprocess.ipynb) : File reads and transforms data cols into correct data type, converts categorical with their codes. Seller and customer information wrt to state and city are mapped using the same categorical codes. The files are stored in pickle formats for faster read operations in future.
+* [100_datata_preproces](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/100_data_preprocess.ipynb) : File reads and transforms data cols into correct data type, converts categorical with their codes. Seller and customer information wrt to state and city are mapped using the same categorical codes. The files are stored in pickle formats for faster read operations in future.
 
-[200_feature_creation_FT](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/200_features_creation_FT.ipynb) : Uses featuretools to build feature set. It requires relationship among the datasets to be specified. Using relational information, and the mentioned aggregation and transformation level primitives, feature set is created and stored in pickle files.
+* [200_feature_creation_FT](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/200_features_creation_FT.ipynb) : Uses featuretools to build feature set. It requires relationship among the datasets to be specified. Using relational information, and the mentioned aggregation and transformation level primitives, feature set is created and stored in pickle files.
 
-[201_clustering_features](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/201_clustering_features.ipynb) : The notebook concentrates on creating few continouos features that are then used for clustering of customers.
+* [201_clustering_features](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/201_clustering_features.ipynb) : The notebook concentrates on creating few continouos features that are then used for clustering of customers.
 
-[300_lgb_optuna_tune_model](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/300_lgb_optuna_tune_model.ipynb) : LightGBM model is built to predict the order value of a given order. Model hyperparameters are tuned using optuna package. Final model is built on the training set, feature importance is noted.
+* [300_lgb_optuna_tune_model](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/300_lgb_optuna_tune_model.ipynb) : LightGBM model is built to predict the order value of a given order. Model hyperparameters are tuned using optuna package. Final model is built on the training set, feature importance is noted.
 
-[400_customer_clustering](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/400_customer_clustering.ipynb) : Hierarchial clustering is used here. To see if the clusters follow any pattern, PCA was done for visual aid. Due to memory error for clustering huge dataset, clusters were formed on customers who have reviewed at least once and followed by using KNN to predict on the non-reviewers. Finally, a state level comparison for which states has highest percentage of one cluster of customers was done. The top 5 states remained same in both clusters.
+* [400_customer_clustering](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/400_customer_clustering.ipynb) : Hierarchial clustering is used here. To see if the clusters follow any pattern, PCA was done for visual aid. Due to memory error for clustering huge dataset, clusters were formed on customers who have reviewed at least once and followed by using KNN to predict on the non-reviewers. Finally, a state level comparison for which states has highest percentage of one cluster of customers was done. The top 5 states remained same in both clusters.
