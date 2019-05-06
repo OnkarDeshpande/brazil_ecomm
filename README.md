@@ -2,14 +2,15 @@
 
 E-commerce public dataset, contains dataset of orders from 2016-2018.
 
-Data source: https://www.kaggle.com/olistbr/brazilian-ecommerce
+### Data source:  
+https://www.kaggle.com/olistbr/brazilian-ecommerce
 
-Problem definition:
+## Problem definition:
 1. Build a machine learning model to predict the payment_value of a given order. The business can look at factors contributing to the order value, directly correlated with revenue of the organization.
 2. Cluster the customers and visually check if they follow any relationship with geography.
 
 
-General workflow:
+## General workflow:
 Exploratory data analysis, pre-processing, feature engineering and model building are kept independent of each other. This is done to help reworking on single aspect again, without breaking much of the pipeline. Processed datasets are stored under data/processed folder. Overall, the workflow looks like: 
 
 * [000_EDA](https://github.com/OnkarDeshpande/brazil_ecomm/blob/master/code/000_EDA.ipynb) : contains trivial findings about datasets, column types and understand the target
